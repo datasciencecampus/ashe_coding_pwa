@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 3, title: "Administrator", description: "Export admin" },
     ];
 
-    const jobList = document.getElementById('job-list');
-    const jobDetails = document.getElementById('job-details');
-    const socResults = document.getElementById('soc-results');
+    const jobListBody = document.getElementById('job-list-body');
+    const jobDetailsContent = document.getElementById('job-details-content');
+    const socResultsTable = document.getElementById('soc-results-table');
 
     // Populate job list
     jobs.forEach(job => {
@@ -19,27 +19,46 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${job.description}</td>
         `;
         row.addEventListener('click', () => showJobDetails(job));
-        jobList.appendChild(row);
+        jobListBody.appendChild(row);
     });
 
     function showJobDetails(job) {
-        jobDetails.innerHTML = `
-            <h2>Job Details</h2>
-            <p><strong>Title:</strong> ${job.title}</p>
+        jobDetailsContent.innerHTML = `
+            <h2>Administrator</h2>
             <p><strong>Description:</strong> ${job.description}</p>
+            <p><strong>Wage:</strong> £32,000</p>
+            <p><strong>Supervisory responsibilities:</strong> No</p>
         `;
-        // In a real app, you would call the API here to get SOC codes
         showMockSocResults();
     }
 
     function showMockSocResults() {
-        socResults.innerHTML = `
-            <h2>Top SOC Results:</h2>
-            <ul>
-                <li>34215 - Professional administrators in export (Confidence: 0.90)</li>
-                <li>16184 - Sales and support professionals in import (Confidence: 0.38)</li>
-                <li>92845 - Administrative occupations n.e.c. (Confidence: 0.34)</li>
-            </ul>
+        socResultsTable.innerHTML = `
+            <tr>
+                <th>SOC code</th>
+                <th>Description</th>
+                <th>Confidence</th>
+            </tr>
+            <tr>
+                <td>34215</td>
+                <td>Professional administrators in export</td>
+                <td>0.90</td>
+            </tr>
+            <tr>
+                <td>16184</td>
+                <td>Sales and support professionals in import</td>
+                <td>0.38</td>
+            </tr>
+            <tr>
+                <td>92845</td>
+                <td>Administrative occupations n.e.c.</td>
+                <td>0.34</td>
+            </tr>
+            <tr>
+                <td>09101</td>
+                <td>Accounts payable administrators</td>
+                <td>0.12</td>
+            </tr>
         `;
     }
 });
