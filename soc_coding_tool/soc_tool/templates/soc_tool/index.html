@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Coding Tool</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Statistical Occupation Classification (SOC) Coding Tool</h1>
+        <p>This tool allows you to sort and code survey responses by SOC code.</p>
+        <p>Select a response to the occupation survey on the left, and see more details from the survey on the right.</p>
+        <p>At bottom right, you can choose from SOC codes returned by the semantic embedding tool</p>
+        
+        <div class="main-content">
+            <div class="job-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Job title</th>
+                            <th>Job description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="job-list-body">
+                        <!-- Job entries will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="job-details">
+                <div id="job-details-content">
+                    <!-- Selected job details will be displayed here -->
+                </div>
+                <div class="action-buttons">
+                    <button id="assign-code">Assign code</button>
+                    <button id="uncodable">Un-codable</button>
+                    <button id="see-more-results">See more results</button>
+                </div>
+                <div id="soc-results">
+                    <h3>Top SOC results:</h3>
+                    <table id="soc-results-table">
+                        <!-- SOC code results will be displayed here -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
